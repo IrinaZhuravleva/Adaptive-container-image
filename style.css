@@ -1,0 +1,96 @@
+*, html, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #000000;
+}
+
+.section {
+    /* убираем горизонтальный скролл, хотя его вроде и не было */
+    overflow: hidden;
+}
+
+@media (min-width: 767px) {
+    .section {
+        display: flex;
+    }
+}
+
+.section__content {
+    /* на всю ширину области с запретом расширяться/уменьшаться */
+    flex: 0 0 100%;
+    display: flex;
+}
+
+.section__container {
+    max-width: 1360px;
+    padding: 0 20px;
+    margin: 0 auto;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+}
+
+.section__body {
+    padding: 50px 0px 50px 0;
+}
+@media (min-width: 767px) {
+    .section__body {
+        /* width: 50%; */
+        width: 40%;
+        padding: 50px 20px 50px 0;
+    }
+    
+}
+
+.section__image img {
+    max-width: 100%;
+}
+
+@media (min-width: 767px) {
+    .section__image {
+        /* flex: 0 0 50%; */
+        flex: 0 0 calc(((100vw - 40px) *0.6) + 20px);
+        padding: 0 0 44.5% 0;
+        transform: translate(-100%, 0px);
+        position: relative;
+
+    }
+
+    .section__image img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+}
+
+.section__title {
+    font-size: 40px;
+    padding-bottom: 30px;
+}
+
+.section__text {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* если вьюпорт больше ширины контейнера  - умножение в формуле происходит на ширину контейнера по дизайну*/
+@media (min-width: 1360px) {
+    .section__image {
+        /* flex: 0 0 50%; */
+        /* flex: 0 0 calc(100vw - (((100vw - 1360px) /2) + ((1360px - 40px) *0.4) +20px)); */
+        flex: 0 0 calc(50vw - (0.4 - 0.5) * 1320px);
+    }
+}
+
